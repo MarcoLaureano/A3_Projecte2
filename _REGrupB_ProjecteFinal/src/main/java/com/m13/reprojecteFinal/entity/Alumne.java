@@ -15,6 +15,9 @@ public class Alumne {
 	String nom;
 	String cognoms;
 	String grup;
+	int grupId;
+	
+	
 
 	public Alumne(String email, String nom, String cognoms, String grup) {
 		super();
@@ -61,6 +64,14 @@ public class Alumne {
 
 	public void setGrup(String grup) {
 		this.grup = grup;
+	}
+
+	public int getGrupId() {
+		return grupId;
+	}
+
+	public void setGrupId(int grupId) {
+		this.grupId = grupId;
 	}
 
 }
