@@ -8,14 +8,12 @@ public class Alumne {
 	String nom;
 	String cognoms;
 	String grup;
-	int grupId;
-	
-	public Alumne(String email, String nom, String cognoms, String grup, int grupId) {
+
+	public Alumne(String email, String nom, String cognoms, String grup) {
 		this.email = email;
 		this.nom = nom;
 		this.cognoms = cognoms;
 		this.grup = grup;
-		this.grupId = grupId;
 	}
 	
 	public Alumne() {
@@ -54,12 +52,4 @@ public class Alumne {
 		this.grup = grup;
 	}
 
-	public int getGrupId() {
-		return grupId;
-	}
-
-	public void setGrupId(int grupId) {
-		this.grupId = grupId;
-	}
-	
 }
