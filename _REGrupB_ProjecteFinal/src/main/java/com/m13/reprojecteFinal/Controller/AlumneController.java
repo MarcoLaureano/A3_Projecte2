@@ -1,4 +1,4 @@
-package com.m13.projecteFinal.alumneController;
+package com.m13.reprojecteFinal.Controller;
 
 import java.util.List;
 
