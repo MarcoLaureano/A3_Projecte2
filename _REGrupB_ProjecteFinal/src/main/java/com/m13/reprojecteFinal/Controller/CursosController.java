@@ -1,36 +1,29 @@
 package com.m13.reprojecteFinal.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.m13.reprojecteFinal.entity.Alumne;
-import com.m13.reprojecteFinal.repositories.AlumneRepository;
+import com.m13.reprojecteFinal.entity.Cursos;
+import com.m13.reprojecteFinal.repositories.CursosRepository;
 
 @RestController
 @RequestMapping("/apiadmin")
-public class AlumneController {
+public class CursosController {
 	@Autowired
-	AlumneRepository alumneRep;
+	CursosRepository CursosRep;
 	
-	
-	//Alumnes
-	@GetMapping("alumnes")
-	public ResponseEntity<?> getAllAlumnes(){
-		List<Alumne> listaAlumnes = alumneRep.findAll();
-		if(listaAlumnes.isEmpty()) {
+	@GetMapping("cursos")
+	public ResponseEntity<?> getAllCursos(){
+		List<Cursos> listaCursos = CursosRep.findAll();
+		if(listaCursos.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}else {
-			return ResponseEntity.ok(listaAlumnes);
+			return ResponseEntity.ok(listaCursos);
 		}
 	}
-		
 }
-	
-
