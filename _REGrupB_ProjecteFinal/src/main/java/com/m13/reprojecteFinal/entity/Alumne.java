@@ -26,6 +26,10 @@ public class Alumne {
 		this.cognoms = cognoms;
 		this.grup = grup;
 	}
+	
+	public Alumne() {
+		
+	}
 
 	public long getId() {
 		return id;
