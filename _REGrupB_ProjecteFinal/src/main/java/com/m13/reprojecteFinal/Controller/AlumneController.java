@@ -32,13 +32,13 @@ public class AlumneController {
 	}
 	
 	@GetMapping("alumnes/{cicle}")
-	public ResponseEntity<?> getGrup(@PathVariable String group) {
+	public ResponseEntity<?> getGrup(@PathVariable("cicle") String group) {
 		List<Alumne> llistatAlumnes = alumneRep.findAll();
 		long id;
 		List<Long> i = new ArrayList<>();
 		int j = 0;
 		for (Alumne a : llistatAlumnes) {
-			if (a.getGrup().equals(getGrup(group))) {
+			if (a.getGrup().equals(group)) {
 				id = a.getId();
 				if (alumneRep.findById(id).isPresent()) {
 					i.add(a.getId());
@@ -46,7 +46,7 @@ public class AlumneController {
 				}
 			}
 		}
-		return (ResponseEntity<?>) alumneRep.findAllById(i);
+		return ResponseEntity.ok(alumneRep.findAllById(i));
 	}
 	
 	//Grup
