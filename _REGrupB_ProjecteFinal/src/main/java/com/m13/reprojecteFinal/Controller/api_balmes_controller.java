@@ -1,5 +1,6 @@
 package com.m13.reprojecteFinal.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,9 @@ import com.m13.reprojecteFinal.entity.Cursos;
 import com.m13.reprojecteFinal.repositories.CursosRepository;
 
 @RestController
-@RequestMapping("/apiadmin")
-public class CursosController {
+@RequestMapping("/apibalmes")
+public class api_balmes_controller {
+	//Grup
 	@Autowired
 	CursosRepository CursosRep;
 	
@@ -26,4 +28,5 @@ public class CursosController {
 			return ResponseEntity.ok(listaCursos);
 		}
 	}
+	//Grup (Id)
 }
