@@ -12,19 +12,13 @@ public class UF {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long ufID;
-	String ufCodi;
-	int horesUF;
-	int horesAssistides;
-	int horesFaltas;
-	LocalDate data;
+	String UF_Num;
+	int UF_HoresTotal;
 	
-	public UF(String ufCodi, int horesUF, int horesAssistides, int horesFaltas, LocalDate data) {
+	public UF(String UF_Num, int UF_HoresTotal) {
 		super();
-		this.ufCodi = ufCodi;
-		this.horesUF = horesUF;
-		this.horesAssistides = horesAssistides;
-		this.horesFaltas = horesFaltas;
-		this.data = data;
+		this.UF_Num = UF_Num;
+		this.UF_HoresTotal= UF_HoresTotal;
 	}
 	
 	public UF(){
@@ -39,44 +33,20 @@ public class UF {
 		this.ufID = ufID;
 	}
 
-	public String getUfCodi() {
-		return ufCodi;
+	public String getUF_Num() {
+		return UF_Num;
 	}
 
-	public void setUfCodi(String ufCodi) {
-		this.ufCodi = ufCodi;
+	public void setUF_Num(String uF_Num) {
+		UF_Num = uF_Num;
 	}
 
-	public int getHoresUF() {
-		return horesUF;
+	public int getUF_HoresTotal() {
+		return UF_HoresTotal;
 	}
 
-	public void setHoresUF(int horesUF) {
-		this.horesUF = horesUF;
-	}
-
-	public int getHoresAssistides() {
-		return horesAssistides;
-	}
-
-	public void setHoresAssistides(int horesAssistides) {
-		this.horesAssistides = horesAssistides;
-	}
-
-	public int getHoresFaltas() {
-		return horesFaltas;
-	}
-
-	public void setHoresFaltas(int horesFaltas) {
-		this.horesFaltas = horesFaltas;
-	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
+	public void setUF_HoresTotal(int uF_HoresTotal) {
+		UF_HoresTotal = uF_HoresTotal;
 	}
 	
 }
