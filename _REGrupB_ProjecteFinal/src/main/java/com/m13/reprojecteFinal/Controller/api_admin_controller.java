@@ -3,6 +3,7 @@ package com.m13.reprojecteFinal.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.m13.reprojecteFinal.repositories.ModulRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,5 +63,6 @@ public class api_admin_controller {
 			return ResponseEntity.ok(listaFaltes);
 		}
 	}
-	
+	@Autowired
+	ModulRepository modulRep;
 }
