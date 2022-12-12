@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Cursos{
+		int curs;
 		String grup;
-		String curs;
 		String aula;
 		String cicle;
 
@@ -16,7 +16,7 @@ public class Cursos{
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long grupid;
 		
-		public Cursos(String grup, String curs, String aula, String cicle) {
+		public Cursos(String grup, int curs, String aula, String cicle) {
 			super();
 			this.grup = grup;
 			this.curs = curs;
@@ -36,11 +36,12 @@ public class Cursos{
 			this.grup = grup;
 		}
 
-		public String getCurs() {
+		
+		public int getCurs() {
 			return curs;
 		}
 
-		public void setCurs(String curs) {
+		public void setCurs(int curs) {
 			this.curs = curs;
 		}
 

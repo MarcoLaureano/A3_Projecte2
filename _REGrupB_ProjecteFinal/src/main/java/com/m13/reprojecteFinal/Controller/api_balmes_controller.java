@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.m13.reprojecteFinal.entity.Cursos;
+import com.m13.reprojecteFinal.entity.Modul;
+import com.m13.reprojecteFinal.entity.Unitat_Formativa;
 import com.m13.reprojecteFinal.repositories.CursosRepository;
+import com.m13.reprojecteFinal.repositories.HoresRepository;
+import com.m13.reprojecteFinal.repositories.ModulRepository;
 
 @RestController
 @RequestMapping("/apibalmes")
@@ -29,4 +33,30 @@ public class api_balmes_controller {
 		}
 	}
 	//Grup (Id)
+	
+	@Autowired
+	ModulRepository ModulsRep;
+	
+	@GetMapping("moduls")
+	public ResponseEntity<?> getAllmoduls(){
+		List<Modul> listaModuls = ModulsRep.findAll();
+		if(listaModuls.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}else {
+			return ResponseEntity.ok(listaModuls);
+		}
+	}
+	
+	@Autowired
+	HoresRepository U_formReps;
+	
+	@GetMapping("moduls")
+	public ResponseEntity<?> getAllUF(){
+		List<Unitat_Formativa> listaUF = U_formReps.findAll();
+		if(listaUF.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}else {
+			return ResponseEntity.ok(listaUF);
+		}
+	}
 }
