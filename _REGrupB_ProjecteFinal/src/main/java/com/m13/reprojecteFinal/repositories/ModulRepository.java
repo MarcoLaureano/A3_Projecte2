@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ModulRepository extends CrudRepository<Modul,Long> {
     public List<Modul> findAll();
+
 }

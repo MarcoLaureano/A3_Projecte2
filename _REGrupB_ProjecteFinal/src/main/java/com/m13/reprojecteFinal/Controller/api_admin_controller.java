@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.m13.reprojecteFinal.entity.Alumne;
-import com.m13.reprojecteFinal.entity.UF;
+import com.m13.reprojecteFinal.entity.Unitat_Formativa;
 import com.m13.reprojecteFinal.repositories.AlumneRepository;
 import com.m13.reprojecteFinal.repositories.HoresRepository;
 
@@ -56,7 +56,7 @@ public class api_admin_controller {
 	
 	@GetMapping("faltes")
 	public ResponseEntity<?>getFaltes(){
-		List<UF> listaFaltes = horesRep.findAll();
+		List<Unitat_Formativa> listaFaltes = horesRep.findAll();
 		if(listaFaltes.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}else {

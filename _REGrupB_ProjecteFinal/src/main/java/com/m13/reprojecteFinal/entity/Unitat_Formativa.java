@@ -8,20 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class UF {
+public class Unitat_Formativa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long ufID;
 	String UF_Num;
 	int UF_HoresTotal;
 	
-	public UF(String UF_Num, int UF_HoresTotal) {
+	public Unitat_Formativa(String UF_Num, int UF_HoresTotal) {
 		super();
 		this.UF_Num = UF_Num;
 		this.UF_HoresTotal= UF_HoresTotal;
 	}
 	
-	public UF(){
+	public Unitat_Formativa(){
 		
 	}
 
