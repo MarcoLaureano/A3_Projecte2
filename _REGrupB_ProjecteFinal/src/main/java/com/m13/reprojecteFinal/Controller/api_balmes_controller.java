@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.m13.reprojecteFinal.entity.Calendario;
 import com.m13.reprojecteFinal.entity.Cursos;
 import com.m13.reprojecteFinal.entity.Modul;
 import com.m13.reprojecteFinal.entity.Unitat_Formativa;
+import com.m13.reprojecteFinal.repositories.CalendariRepository;
 import com.m13.reprojecteFinal.repositories.CursosRepository;
-import com.m13.reprojecteFinal.repositories.HoresRepository;
 import com.m13.reprojecteFinal.repositories.ModulRepository;
 
 @RestController
@@ -48,15 +49,16 @@ public class api_balmes_controller {
 	}
 	
 	@Autowired
-	HoresRepository U_formReps;
+	CalendariRepository calendariRepos;
 	
-	@GetMapping("moduls")
-	public ResponseEntity<?> getAllUF(){
-		List<Unitat_Formativa> listaUF = U_formReps.findAll();
-		if(listaUF.isEmpty()) {
+	@GetMapping("calendari")
+	public ResponseEntity<?>getCalendari(){
+		List<Calendario> calendari = calendariRepos.findAll();
+		if(calendari.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}else {
-			return ResponseEntity.ok(listaUF);
+			return ResponseEntity.ok(calendari);
 		}
 	}
+
 }

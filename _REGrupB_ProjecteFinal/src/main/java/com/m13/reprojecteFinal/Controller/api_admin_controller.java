@@ -3,7 +3,9 @@ package com.m13.reprojecteFinal.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.m13.reprojecteFinal.repositories.ModulRepository;
+
+import com.m13.reprojecteFinal.repositories.UFRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.m13.reprojecteFinal.entity.Alumne;
 import com.m13.reprojecteFinal.entity.Unitat_Formativa;
 import com.m13.reprojecteFinal.repositories.AlumneRepository;
-import com.m13.reprojecteFinal.repositories.HoresRepository;
+
 
 @RestController
 @RequestMapping("/apiadmin")
@@ -51,9 +53,19 @@ public class api_admin_controller {
 		return ResponseEntity.ok(alumneRep.findAllById(i));
 	}
 	
+	@GetMapping("alumnes/{nom}")
+	public ResponseEntity<?> getNames(@PathVariable("nom") String nom) {
+		Iterable<?> alumne;
+		if((alumne = alumneRep.findByNom(nom)) != null) {
+			return ResponseEntity.ok(alumne);
+		}
+		return ResponseEntity.notFound().build();
+		}
+		
 	@Autowired
-	HoresRepository horesRep;
+	UFRepository horesRep;
 	
+	//unitat_Formativa
 	@GetMapping("faltes")
 	public ResponseEntity<?>getFaltes(){
 		List<Unitat_Formativa> listaFaltes = horesRep.findAll();
@@ -63,6 +75,4 @@ public class api_admin_controller {
 			return ResponseEntity.ok(listaFaltes);
 		}
 	}
-	@Autowired
-	ModulRepository modulRep;
 }
